@@ -1,0 +1,15 @@
+<h1>My Tasks</h1>
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+    <% if task.completed %>
+      <%= "☑" %>
+    <% else %>
+      <%= "☐" %>
+    <% end %>
+    <%= link_to task.title, task_path(task) %>
+    <%= link_to "🗑", task_path(task), method: :delete %>
+    </li>
+  <% end %>
+</ul>
+<a href="/tasks/new"> + Add a new task</a>
